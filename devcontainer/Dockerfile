@@ -11,9 +11,6 @@ RUN apt-get update && \
     build-essential \
     wget \
     cmake \
-    g++ \
-    gcc \
-    binutils \
     python3 \
     python3-pip \
     git \
@@ -88,16 +85,16 @@ RUN git clone https://github.com/FAST-Project/fastjet.git && \
     rm -rf fastjet
 
 # Install Cgg (optional: replace with the actual Cgg installation steps)
-#RUN wget http://lcgapp.cern.ch/project/simu/HepMC/download/HepMC-2.06.11.tar.gz && \
- #   tar -xzvf HepMC-2.06.11.tar.gz && \
- #   cd HepMC-2.06.11 && \
- #   mkdir build && \
- #   cd build && \
- #   cmake .. && \
- #   make -j4 && \
- #   make install && \
- #   cd ../.. && \
- #   rm -rf HepMC-2.06.11 HepMC-2.06.11.tar.gz
+RUN wget http://lcgapp.cern.ch/project/simu/HepMC/download/HepMC-2.06.11.tar.gz && \
+    tar -xzvf HepMC-2.06.11.tar.gz && \
+    cd HepMC-2.06.11 && \
+    mkdir build && \
+    cd build && \
+    cmake .. && \
+    make -j4 && \
+    make install && \
+    cd ../.. && \
+    rm -rf HepMC-2.06.11 HepMC-2.06.11.tar.gz
 
 # Set working directory
 WORKDIR /app
@@ -106,7 +103,7 @@ WORKDIR /app
 COPY . .
 
 # Install Python dependencies
-##RUN pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 # Specify the command to run on container start
-##CMD ["python3", "your_script.py"]
+CMD ["python3", "your_script.py"]
