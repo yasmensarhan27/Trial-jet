@@ -6,64 +6,25 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 
 # Update package lists and install necessary packages
-RUN apt-get update && \
-    apt-get install -y \
-    build-essential \
-    wget \
-    cmake \
-    g++ \
-    gcc \
-    binutils \
-    python3 \
-    python3-pip \
-    git \
-    libfftw3-dev \
-    libboost-all-dev \
-    libpython3-dev \
-    libgsl-dev \
-    zlib1g-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    libyaml-dev \
-    libpng-dev \
-    libjpeg-dev \
-    libgif-dev \
-    libtiff-dev \
-    libx11-dev \
-    libxext-dev \
-    libxft-dev \
-    libxpm-dev \
-    libxrandr-dev \
-    libxrender-dev \
-    libxss-dev \
-    libxt-dev \
-    libxtst-dev \
-    libxv-dev \
-    libgl1-mesa-dev \
-    libglu1-mesa-dev \
-    libfreetype6-dev \
-    libfontconfig1-dev \
-    libpcre3-dev \
-    libssl-dev \
-    libbz2-dev \
-    liblzma-dev \
-    libsqlite3-dev \
-    libncurses5-dev \
-    libreadline-dev \
-    libgdbm-dev \
-    libdb-dev \
-    tk-dev \
-    libexpat1-dev \
-    libffi-dev \
-    libudev-dev \
-    libcppunit-dev \
-    libgtest-dev \
-    libcurl4-openssl-dev \
-    libldap2-dev \
-    python3-matplotlib \
-    python3-numpy \
-    python3-scipy \
-    && rm -rf /var/lib/apt/lists/*
+RUN sudo apt-get update && \
+sudo apt-get install -y \
+dpkg-dev \
+cmake \
+g++ \
+gcc \
+binutils \
+libx11-dev \
+libxpm-dev \
+libxft-dev \
+libxext-dev \
+libpng-dev \
+libjpeg-dev \
+python3 \
+libssl-dev \
+wget \
+&& sudo apt-get clean \
+&& sudo rm -rf /var/lib/apt/lists/*
+
 
 # Install ROOT
 RUN wget https://root.cern/download/root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz && \
