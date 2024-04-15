@@ -87,6 +87,9 @@ RUN git clone https://github.com/FAST-Project/fastjet.git && \
     cd .. && \
     rm -rf fastjet
 
+# Create the working directory
+RUN mkdir /app
+
 # Set working directory
 WORKDIR /app
 
@@ -97,4 +100,4 @@ COPY . .
 RUN pip3 install -r requirements.txt
 
 # Specify the command to run on container start
-CMD ["python3", "your_script.py"]
+CMD ["bash"]
