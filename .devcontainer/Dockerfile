@@ -27,10 +27,9 @@ wget \
 
 
 # Install ROOT
-RUN wget https://root.cern/download/root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz && \
-    tar -xzvf root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz && \
-    rm root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.4.tar.gz && \
-    mv root /usr/local
+RUN wget https://root.cern/download/root_v6.30.06.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz &&\
+tar -xzvf root_v6.30.06.Linux-almalinux9.3-x86_64-gcc11.4.tar.gz &&\
+source root/bin/thisroot.sh # also available: thisroot.{csh,fish,bat}
 
 # Set environment variables for ROOT
 ENV ROOTSYS /usr/local/root
