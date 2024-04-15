@@ -1,9 +1,11 @@
 {
     "name": "Jet Clustering",
-    "dockerFile": "Dockerfile",
+    "build":{
+  
+        "dockerfile": "Dockerfile"
+      },
     "settings": {},
     "extensions": [],
     "forwardPorts": [],
-    "remoteUser": "vscode",
     "workspaceFolder": "/app"
 }
